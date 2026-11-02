@@ -1,10 +1,10 @@
 {
  "product": "LDR",
- "version": "1.1.1",
+ "version": "1.1.2",
  "released": "2026-11-02",
- "notes": "First public release",
- "download_url": "downloads/LDR-1.1.1.zip",
- "sha256": "cbb05f6dc2e807fc4150674339f92963526654ae183a2a9038ec9665af19eb20",
- "size": 513209,
+ "notes": "Library staff can complete digitization and metadata; administrator decides retention at approval",
+ "download_url": "downloads/LDR-1.1.2.zip",
+ "sha256": "4109a26376f3a57822b1f155d44bb2d1bd9df14248d07e812db59acdc5dd91d4",
+ "size": 515217,
  "min_from_version": ""
 }
