@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LDR – Library Document Repository</title>
+<meta name="description" content="Free, open-source software to preserve and manage a library's internal documents: invoices, agreements, policies, minutes, NAAC and audit records.">
+<style>
+:root{--p:#0f5c63;--pd:#0a434a;--a:#e0a526;--t:#1d2733;--m:#5b6773;--bg:#f6f8f9;--line:#e3e7eb}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--t);line-height:1.6;background:#fff}
+a{color:var(--p)}.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+header{background:linear-gradient(135deg,var(--pd),var(--p) 60%,#17808a);color:#fff}
+nav{display:flex;align-items:center;gap:24px;padding:18px 0}nav .logo{font-weight:800;font-size:1.2rem;color:#fff;text-decoration:none}
+nav a{color:rgba(255,255,255,.85);text-decoration:none;font-size:.95rem}nav .sp{flex:1}
+.hero{padding:56px 0 72px;display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center}
+.hero h1{font-size:2.5rem;line-height:1.15;margin:0 0 16px}.hero p{font-size:1.1rem;opacity:.9;margin:0 0 28px}
+.btn{display:inline-block;padding:13px 24px;border-radius:8px;font-weight:600;text-decoration:none}
+.btn-a{background:var(--a);color:#1d1d1d}.btn-o{border:1.5px solid rgba(255,255,255,.6);color:#fff;margin-left:10px}
+.hero img{width:100%;border-radius:10px;box-shadow:0 20px 50px rgba(0,0,0,.35)}
+.meta{font-size:.85rem;opacity:.75;margin-top:14px}
+section{padding:64px 0}section.alt{background:var(--bg)}h2{font-size:1.8rem;margin:0 0 10px}.lead{color:var(--m);margin:0 0 36px;max-width:760px}
+.phases{display:grid;grid-template-columns:repeat(7,1fr);gap:12px}
+.ph{background:#fff;border:1px solid var(--line);border-radius:10px;padding:16px 12px;text-align:center}
+.ph b{display:flex;width:36px;height:36px;border-radius:50%;background:var(--p);color:#fff;align-items:center;justify-content:center;margin:0 auto 8px}
+.ph h3{font-size:.9rem;margin:0 0 6px}.ph p{font-size:.78rem;color:var(--m);margin:0}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{border:1px solid var(--line);border-radius:10px;padding:22px;background:#fff}.card h3{margin:0 0 6px;font-size:1.05rem}.card p{margin:0;color:var(--m);font-size:.93rem}
+.shots{display:grid;grid-template-columns:1fr 1fr;gap:20px}.shots figure{margin:0}.shots img{width:100%;border:1px solid var(--line);border-radius:8px}
+.shots figcaption{font-size:.85rem;color:var(--m);margin-top:6px}
+.dl{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.dl .card ol{padding-left:18px;margin:10px 0 0;font-size:.92rem}
+code,pre{font-family:Consolas,Menlo,monospace;font-size:.85rem}pre{background:#1d2733;color:#e8eef3;padding:12px 14px;border-radius:8px;overflow-x:auto}
+.net{display:flex;gap:16px;flex-wrap:wrap;margin-top:24px}.net div{flex:1;min-width:240px;border-left:4px solid var(--a);background:#fff;padding:14px 18px;border-radius:6px}
+table{border-collapse:collapse;width:100%;font-size:.92rem}td,th{border-bottom:1px solid var(--line);padding:9px 8px;text-align:left}th{color:var(--m);font-weight:600}
+footer{background:var(--pd);color:rgba(255,255,255,.75);padding:28px 0;font-size:.88rem}
+@media(max-width:900px){.hero{grid-template-columns:1fr}.phases{grid-template-columns:repeat(2,1fr)}.grid3,.dl,.shots{grid-template-columns:1fr}.hero h1{font-size:1.9rem}nav a.hide{display:none}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <nav><a class="logo" href="#">▣ LDR</a><span class="sp"></span>
+      <a class="hide" href="#framework">Framework</a><a class="hide" href="#features">Features</a><a class="hide" href="#screens">Screens</a><a href="#download">Download</a></nav>
+    <div class="hero">
+      <div>
+        <h1>Library Document Repository</h1>
+        <p>Free, open-source software for preserving and managing a library's own internal records — invoices, vendor agreements, policies, committee minutes, NAAC and audit documents — from receipt to secure disposal.</p>
+        <a class="btn btn-a" href="#download"><span class="ldr-ver-label">Download LDR</span></a><a class="btn btn-o" href="#install">Installation guide</a>
+        <div class="meta">Windows · Linux · Docker &nbsp;|&nbsp; Runs on your library LAN, like Koha and DSpace</div>
+      </div>
+      <img src="screenshots/dashboard.jpg" alt="LDR dashboard">
+    </div>
+  </div>
+</header>
+
+<section id="framework"><div class="wrap">
+  <h2>Built on the seven-phase LDR framework</h2>
+  <p class="lead">Every document follows a controlled lifecycle aligned with the OAIS reference model, the Records Continuum Model and the DCC Curation Lifecycle Model, so each record has an accountable entry, a verified life and a documented exit.</p>
+  <div class="phases">
+    <div class="ph"><b>1</b><h3>Creation / Receipt</h3><p>Unique ID, source and custodian</p></div>
+    <div class="ph"><b>2</b><h3>Digitization</h3><p>Scan, OCR, SHA-256 checksum</p></div>
+    <div class="ph"><b>3</b><h3>Metadata</h3><p>Dublin Core-based description</p></div>
+    <div class="ph"><b>4</b><h3>Validation &amp; Approval</h3><p>Super Librarian sign-off</p></div>
+    <div class="ph"><b>5</b><h3>Active Access</h3><p>Role-based LAN access, logged</p></div>
+    <div class="ph"><b>6</b><h3>Retention Monitoring</h3><p>Expiry alerts and reviews</p></div>
+    <div class="ph"><b>7</b><h3>Secure Disposal</h3><p>Approved, erased, certified</p></div>
+  </div>
+</div></section>
+
+<section class="alt" id="features"><div class="wrap">
+  <h2>Features</h2>
+  <p class="lead">Designed for school, college and university libraries preparing for audits, inspections and accreditation.</p>
+  <div class="grid3">
+    <div class="card"><h3>Full-text search</h3><p>Find records by ID, title, vendor, reference number, keyword, year or the text inside PDFs, Word and Excel files. Scanned pages become searchable with OCR.</p></div>
+    <div class="card"><h3>Role-based access</h3><p>Administrator, Super Librarian, Cataloguer, Technical Staff, Library Staff and view-only roles. Confidential records open only with the Super Librarian's permission.</p></div>
+    <div class="card"><h3>Tamper-evident audit trail</h3><p>Every login, upload, view, download, approval and disposal is logged in a hash-chained trail that can be verified and exported for auditors.</p></div>
+    <div class="card"><h3>Retention schedules</h3><p>Retention periods per category (invoices 8 years, policies permanent…), automatic expiry dates, daily alerts and recorded review decisions.</p></div>
+    <div class="card"><h3>Integrity &amp; backups</h3><p>SHA-256 fixity checks every day, preservation master plus access copy, and an automatic daily backup of the database and files.</p></div>
+    <div class="card"><h3>Disposal certificates</h3><p>Two-person approval and secure erasure, with a printable certificate listing the reason, the people involved and the checksums of the destroyed files.</p></div>
+  </div>
+</div></section>
+
+<section id="screens"><div class="wrap">
+  <h2>Screens</h2>
+  <div class="shots">
+    <figure><img src="screenshots/document.jpg" alt="Document record"><figcaption>A document record with its phase tracker, files, checksums and history</figcaption></figure>
+    <figure><img src="screenshots/search.jpg" alt="Search"><figcaption>Search finds text read by OCR from a scanned invoice</figcaption></figure>
+    <figure><img src="screenshots/dashboard.jpg" alt="Dashboard"><figcaption>Dashboard showing documents in each lifecycle phase</figcaption></figure>
+    <figure><img src="screenshots/settings.jpg" alt="Settings"><figcaption>Network addresses, OCR status and backups</figcaption></figure>
+  </div>
+</div></section>
+
+<section class="alt" id="download"><div class="wrap">
+  <h2>Download &amp; install</h2>
+  <p class="lead">Install once on one library computer (the server). Every staff computer then uses LDR in a web browser over the library network — nothing to install on them.</p>
+  <p><a class="btn btn-a" id="dl-btn" href="latest.json">⬇ <span class="ldr-ver-label">Download LDR</span></a>
+    <span id="dl-meta" style="color:var(--m);margin-left:12px;font-size:.9rem"></span></p>
+  <div id="whatsnew" class="card" style="display:none;margin-bottom:24px"><h3>What's new</h3><p id="notes" style="white-space:pre-line"></p></div>
+  <p style="color:var(--m);font-size:.92rem">Already using LDR? You don't need to download again — the administrator gets an <b>"Update available"</b> message inside LDR (Settings &amp; backup → Software updates) and installs it with one click.</p>
+  <div class="dl" id="install">
+    <div class="card"><h3>Windows</h3><ol>
+      <li>Install <a href="https://www.python.org/downloads/windows/">Python 3.10+</a>. Tick <b>"Add python.exe to PATH"</b>.</li>
+      <li>Unzip LDR to <code>C:\LDR</code>.</li>
+      <li>Run <code>install_windows.bat</code> (as administrator to open the firewall port).</li>
+      <li>Start it with the <b>LDR Server</b> desktop icon and complete the setup page.</li>
+      <li>Optional: <code>autostart_windows.bat</code> starts it automatically at boot; install <a href="https://github.com/UB-Mannheim/tesseract/wiki">Tesseract OCR</a> for searchable scans.</li></ol></div>
+    <div class="card"><h3>Linux (Ubuntu/Debian)</h3><pre>unzip LDR-x.y.z.zip
+cd LDR-x.y.z
+bash install_linux.sh</pre><p>Installs OCR, registers a <code>systemd</code> service and starts LDR automatically at boot.</p></div>
+    <div class="card"><h3>Docker</h3><pre>cd LDR-x.y.z
+docker compose up -d</pre><p>Data, configuration and backups are kept in the <code>./data</code> folder.</p></div>
+  </div>
+  <div class="net">
+    <div><b>On the server</b><br><code>http://localhost:8080</code></div>
+    <div><b>From any staff computer</b><br><code>http://&lt;server-IP&gt;:8080</code> e.g. <code>http://192.168.1.25:8080</code></div>
+    <div><b>Change the port</b><br>Edit <code>ldr_config.ini</code> and restart</div>
+  </div>
+  <h3 style="margin-top:36px">System requirements</h3>
+  <table><tr><th>Server</th><td>Any Windows 10/11 or Linux PC; 4 GB RAM; disk space for your documents (1 GB holds roughly 3,000–6,000 scanned pages)</td></tr>
+  <tr><th>Clients</th><td>Any modern browser (Chrome, Edge, Firefox) on the same network</td></tr>
+  <tr><th>Software</th><td>Python 3.10+ (Windows/Linux) or Docker; Tesseract OCR is optional</td></tr>
+  <tr><th>Database</th><td>Built-in SQLite (no setup); PostgreSQL optional for large installations</td></tr></table>
+</div></section>
+
+<footer><div class="wrap">LDR – Library Document Repository <span class="ldr-ver"></span> · Based on the research framework “Library Document Repository: A Framework for Preservation and Management of Internal Library Documents” (<i>Digital Library Perspectives</i>).</div></footer>
+<script>
+// Always show the newest release published with tools/release.py (reads latest.json)
+fetch('latest.json?t=' + Date.now()).then(r => r.json()).then(j => {
+  document.querySelectorAll('.ldr-ver-label').forEach(e => e.textContent = 'Download LDR ' + j.version);
+  document.querySelectorAll('.ldr-ver').forEach(e => e.textContent = 'v' + j.version);
+  const a = document.getElementById('dl-btn'); a.href = j.download_url;
+  document.getElementById('dl-meta').textContent = `Released ${j.released} · ${(j.size / 1048576).toFixed(1)} MB · SHA-256 ${j.sha256.slice(0, 12)}…`;
+  if (j.notes) { document.getElementById('notes').textContent = j.notes; document.getElementById('whatsnew').style.display = 'block'; }
+}).catch(() => {});
+</script>
+</body>
+</html>
