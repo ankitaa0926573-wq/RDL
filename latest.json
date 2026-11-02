@@ -1,10 +1,10 @@
 {
  "product": "LDR",
- "version": "1.3.1",
+ "version": "1.4.0",
  "released": "2026-11-02",
  "notes": "OCR added",
- "download_url": "downloads/LDR-1.3.1.zip",
- "sha256": "13807c3415d7364ffe9c44e42751da8e8520129adae45bfa9b50c6fc2e8c2ad3",
- "size": 588263,
+ "download_url": "downloads/LDR-1.4.0.zip",
+ "sha256": "f9964859c1e554f8ddcdf751afc70fae30bf6c6fc9dcceac81c77bf8751ec0e1",
+ "size": 595269,
  "min_from_version": ""
 }
