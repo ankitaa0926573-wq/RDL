@@ -1,10 +1,10 @@
 {
  "product": "LDR",
- "version": "1.3.0",
+ "version": "1.3.1",
  "released": "2026-11-02",
- "notes": "OCR reader",
- "download_url": "downloads/LDR-1.3.0.zip",
- "sha256": "db2724e0369c59f737c0ef7a0fee0c8b21cd8075d17cc6803e18c21a1e60d537",
- "size": 587982,
+ "notes": "OCR added",
+ "download_url": "downloads/LDR-1.3.1.zip",
+ "sha256": "13807c3415d7364ffe9c44e42751da8e8520129adae45bfa9b50c6fc2e8c2ad3",
+ "size": 588263,
  "min_from_version": ""
 }
