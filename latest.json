@@ -1,10 +1,11 @@
 {
  "product": "LDR",
- "version": "1.4.0",
- "released": "2026-11-02",
- "notes": "OCR added",
- "download_url": "downloads/LDR-1.4.0.zip",
- "sha256": "f9964859c1e554f8ddcdf751afc70fae30bf6c6fc9dcceac81c77bf8751ec0e1",
- "size": 595269,
+ "version": "1.5.0",
+ "released": "2026-11-05",
+ "notes": "OCR Charector read, Invoice entries for Books, Journals, Databases, magazines etc..",
+ "download_url": "downloads/LDR-1.5.0.zip",
+ "installer_url": "https://github.com/ankitaa0926573-wq/RDL/releases/download/v1.5.0/LDR-Setup-1.5.0.exe",
+ "sha256": "77c8a1b33b705dc767016460b81d0c79efaebb51158d0b2cc8f5e94fdf35d622",
+ "size": 623822,
  "min_from_version": ""
 }

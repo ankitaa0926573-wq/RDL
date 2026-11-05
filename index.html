@@ -94,15 +94,15 @@ footer{background:var(--pd);color:rgba(255,255,255,.75);padding:28px 0;font-size
   <p class="lead">Install once on one library computer (the server). Every staff computer then uses LDR in a web browser over the library network — nothing to install on them.</p>
   <p><a class="btn btn-a" id="dl-btn" href="latest.json">⬇ <span class="ldr-ver-label">Download LDR</span></a>
     <span id="dl-meta" style="color:var(--m);margin-left:12px;font-size:.9rem"></span></p>
+  <p style="display:none;font-size:.9rem;color:var(--m)">Linux, Docker or manual installation: <a id="zip-link" href="#">download the ZIP package</a>.</p>
   <div id="whatsnew" class="card" style="display:none;margin-bottom:24px"><h3>What's new</h3><p id="notes" style="white-space:pre-line"></p></div>
   <p style="color:var(--m);font-size:.92rem">Already using LDR? You don't need to download again — the administrator gets an <b>"Update available"</b> message inside LDR (Settings &amp; backup → Software updates) and installs it with one click.</p>
   <div class="dl" id="install">
-    <div class="card"><h3>Windows</h3><ol>
-      <li>Install <a href="https://www.python.org/downloads/windows/">Python 3.10+</a>. Tick <b>"Add python.exe to PATH"</b>.</li>
-      <li>Unzip LDR to <code>C:\LDR</code>.</li>
-      <li>Run <code>install_windows.bat</code> (as administrator to open the firewall port).</li>
-      <li>Start it with the <b>LDR Server</b> desktop icon and complete the setup page.</li>
-      <li>Optional: <code>autostart_windows.bat</code> starts it automatically at boot; install <a href="https://github.com/UB-Mannheim/tesseract/wiki">Tesseract OCR</a> for searchable scans.</li></ol></div>
+    <div class="card"><h3>Windows – one-click installer</h3><ol>
+      <li>Click <b>Download LDR … for Windows</b> above.</li>
+      <li>Open <code>LDR-Setup-x.y.z.exe</code> → <b>Next</b> → <b>Install</b> → <b>Finish</b>.</li>
+      <li>LDR opens in the browser – complete the setup page (library name and the first administrator).</li></ol>
+      <p style="font-size:.88rem;color:var(--m)">Everything is included: LDR, its own Python, all components and the OCR for scanned invoices. Nothing else to install, no commands to type. LDR runs in the background, starts automatically with Windows, opens the firewall for the library network and keeps the server awake. Other computers open <code>http://&lt;server-IP&gt;:8080</code>. Updates install themselves from inside LDR.</p></div>
     <div class="card"><h3>Linux (Ubuntu/Debian)</h3><pre>unzip LDR-x.y.z.zip
 cd LDR-x.y.z
 bash install_linux.sh</pre><p>Installs OCR, registers a <code>systemd</code> service and starts LDR automatically at boot.</p></div>
@@ -117,7 +117,7 @@ docker compose up -d</pre><p>Data, configuration and backups are kept in the <co
   <h3 style="margin-top:36px">System requirements</h3>
   <table><tr><th>Server</th><td>Any Windows 10/11 or Linux PC; 4 GB RAM; disk space for your documents (1 GB holds roughly 3,000–6,000 scanned pages)</td></tr>
   <tr><th>Clients</th><td>Any modern browser (Chrome, Edge, Firefox) on the same network</td></tr>
-  <tr><th>Software</th><td>Python 3.10+ (Windows/Linux) or Docker; Tesseract OCR is optional</td></tr>
+  <tr><th>Software</th><td>Windows: nothing – the installer contains everything. Linux: Python 3.10+ or Docker.</td></tr>
   <tr><th>Database</th><td>Built-in SQLite (no setup); PostgreSQL optional for large installations</td></tr></table>
 </div></section>
 
@@ -127,8 +127,16 @@ docker compose up -d</pre><p>Data, configuration and backups are kept in the <co
 fetch('latest.json?t=' + Date.now()).then(r => r.json()).then(j => {
   document.querySelectorAll('.ldr-ver-label').forEach(e => e.textContent = 'Download LDR ' + j.version);
   document.querySelectorAll('.ldr-ver').forEach(e => e.textContent = 'v' + j.version);
-  const a = document.getElementById('dl-btn'); a.href = j.download_url;
-  document.getElementById('dl-meta').textContent = `Released ${j.released} · ${(j.size / 1048576).toFixed(1)} MB · SHA-256 ${j.sha256.slice(0, 12)}…`;
+  const a = document.getElementById('dl-btn');
+  if (j.installer_url) {  // one-click Windows installer (GitHub Release file)
+    a.href = j.installer_url;
+    document.querySelectorAll('.ldr-ver-label').forEach(e => e.textContent = 'Download LDR ' + j.version + ' for Windows');
+    const z = document.getElementById('zip-link'); z.href = j.download_url; z.parentElement.style.display = '';
+    document.getElementById('dl-meta').textContent = `Released ${j.released} · one-click installer, includes everything`;
+  } else {
+    a.href = j.download_url;
+    document.getElementById('dl-meta').textContent = `Released ${j.released} · ${(j.size / 1048576).toFixed(1)} MB · SHA-256 ${j.sha256.slice(0, 12)}…`;
+  }
   if (j.notes) { document.getElementById('notes').textContent = j.notes; document.getElementById('whatsnew').style.display = 'block'; }
 }).catch(() => {});
 </script>
